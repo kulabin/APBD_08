@@ -14,15 +14,16 @@ namespace APBD_08.Controllers
         {
             _tripsService = tripsService;   
         }
+        
+        [HttpGet("{id}/trips")]
+        public async Task<IActionResult> GetClientTrips(int id)
+        {
+            var clientTrips = await _tripsService.GetClientTrips(id);
+            return Ok(clientTrips);
+        }
 
         [HttpPost]
         public async Task<IActionResult> CreateClient()
-        {
-            return Ok();
-        }
-
-        [HttpGet("{id}/trips")]
-        public async Task<IActionResult> GetClientTrips(int id)
         {
             return Ok();
         }
